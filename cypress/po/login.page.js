@@ -17,7 +17,6 @@ class LoginPage {
     cy.get('input[name="login"]').type(Cypress.config('username'))
     cy.get('input[name="password"]').type(Cypress.config('password'))
     cy.get('div[class*="login-button"] button').click()
-    cy.wait(2000)
   }
 
   logout () {
