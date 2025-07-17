@@ -1,0 +1,38 @@
+{
+  "name": "at_advanced_prerequisite_task",
+  "version": "1.0.0",
+  "description": "AT Advanced Prerequisite Task",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint ./ --fix",
+    "pretest": "rm reports/data/* || true",
+    "report-merge": "mochawesome-merge reports/data/*.json -o reports/merged-report.json",
+    "report-generate": "npm run report-merge && marge reports/merged-report.json -o reports --charts true",
+    "test": "npm run lint && cypress run --browser chrome --spec \"cypress/e2e/tests/**.cy.js\" || npm run report-generate"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zentestuken/at_advanced_prerequisite_task.git"
+  },
+  "keywords": [
+    "javascript",
+    "test",
+    "automation"
+  ],
+  "author": "Yauhen Viazau",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zentestuken/at_advanced_prerequisite_task/issues"
+  },
+  "homepage": "https://github.com/zentestuken/at_advanced_prerequisite_task#readme",
+  "dependencies": {
+    "cypress": "^14.5.2",
+    "cypress-mochawesome-reporter": "^4.0.0"
+  },
+  "devDependencies": {
+    "dotenv": "^17.2.0",
+    "eslint": "^9.31.0",
+    "eslint-plugin-cypress": "^5.1.0"
+  }
+}
